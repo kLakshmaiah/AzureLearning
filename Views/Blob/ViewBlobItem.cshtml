@@ -1,0 +1,11 @@
+﻿@model BlobDetails
+@{
+    ViewData["Title"] = "ViewBlobItem";
+}
+
+<h3>Container Name is :- <span class="text-primary">@Context.Request.Query["containername"]</span> Blob Name is :- <span class="text-primary">@Context.Request.Query["blobname"]</span></h3>
+<video width="640" height="360" controls>
+    <source src="@Model.Url" type="@Model.BlobType">
+    Your browser does not support the video tag.
+</video>
+

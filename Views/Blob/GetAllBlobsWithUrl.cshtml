@@ -1,0 +1,22 @@
+﻿@model List<BlobDetails>
+@{
+    ViewData["Title"] = "GetAllBlobsWithUrl";
+}
+
+<h3>Container Name is :- <span class="text-primary">@Context.Request.Query["name"]</span></h3>
+
+@if (Model.Any())
+{
+    <ul class="list-unstyled">
+        @foreach (BlobDetails blobname in Model)
+        {
+            <li><a asp-action="BlobWithTheContainerUrl" asp-route-containerName="@Context.Request.Query["name"]" asp-route-bloburl="@blobname.Url" class="text-decoration-none">@blobname.BlobName</a></li>
+        }
+    </ul>
+}
+else
+{
+    <div class="alert alert-warning m-3">
+        <span>No Records Found</span>
+    </div>
+}

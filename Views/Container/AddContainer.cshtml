@@ -1,0 +1,12 @@
+﻿@model AddContainer
+@{
+    ViewBag.title = "AddContainer";
+}
+<p>Add container</p>
+<form method="post" asp-action="AddContainer">
+    <div class="mt-1">
+    <input class="form-control" asp-for="ContainerName" placeholder="enter add-container name" />
+    <span class="text-danger" asp-validation-for="ContainerName"></span>
+    </div>
+    <button class="btn btn-primary">Add Container</button>
+</form>

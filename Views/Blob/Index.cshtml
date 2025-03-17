@@ -1,0 +1,21 @@
+﻿@model List<string>
+@{
+    ViewBag.title = "manage-container";
+}
+<h3>Container Name is :- <span class="text-primary">@Context.Request.Query["name"]</span></h3>
+
+@if (Model.Any())
+{
+    <ul class="list-unstyled">
+        @foreach(string blobname in Model)
+        {
+            <li><a  asp-action="ViewBlobItem" asp-route-containerName="@Context.Request.Query["name"]" asp-route-blobName="@blobname" class="text-decoration-none">@blobname</a></li>
+        }
+    </ul>
+}
+else
+{
+    <div class="alert alert-warning m-3">
+        <span>No Records Found</span>
+    </div>
+}

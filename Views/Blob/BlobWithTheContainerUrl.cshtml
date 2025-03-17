@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewData["Title"] = "BlobWithTheContainerUrl";
+}
+
+<h1>BlobWithTheContainerUrl</h1>
+<video width="640" height="360" controls>
+    <source src="@Context.Request.Query["bloburl"]">
+    Your browser does not support the video tag.
+</video>
+

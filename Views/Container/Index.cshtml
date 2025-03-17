@@ -1,0 +1,26 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<string>
+@{
+    ViewData["title"] = "ContainersList";
+}
+<a class="btn btn-primary p-1 float-end" asp-action="AddContainer">Add Container</a>
+@if (!Model.Any())
+{
+    <p class="alert alert-warning  w-75">No container is found</p>
+}
+else
+{
+    foreach (string containerName in Model)
+    {
+        <div class="d-flex m-2">
+            <p class="text-primary">@containerName</p>
+            <div class="m-2">
+                <a class="btn btn-primary p-1" asp-action="Index" asp-controller="blob" asp-route-name="@containerName">Manage</a>
+                <a class="btn btn-primary p-1" asp-action="GetAllBlobsWithUrl" asp-controller="blob" asp-route-name="@containerName">BlogWithFullUrl</a>
+                <a class="btn btn-danger p-1">Delete</a>
+            </div>
+        </div>
+    }
+}
